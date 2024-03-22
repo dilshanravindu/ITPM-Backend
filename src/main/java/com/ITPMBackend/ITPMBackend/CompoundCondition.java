@@ -41,26 +41,26 @@ public class CompoundCondition {
     }
 
     @PostMapping("/calculate-complexity-switch")
-    public int countSwitchCase(@RequestBody String code) {
-        // Define regular expression pattern to match 'switch' case statements
-        String switchPattern = "\\bswitch\\s*\\(.+?\\)\\s*\\{([^}]*)}";
+    public int countSwitch(@RequestBody String code) {
+        // Define regular expression pattern to match 'case' statements
+        String casePattern = "\\bcase\\s*[^:]+:";
 
         // Create a regex pattern
-        Pattern pattern = Pattern.compile(switchPattern);
+        Pattern pattern = Pattern.compile(casePattern);
 
         // Use a Matcher to find matches in the code
         Matcher matcher = pattern.matcher(code);
 
-        int caseCount = 0;
+        int conditionCount = 0;
 
-        // Count cases in 'switch' statements
+        // Count conditions in 'case' statements
         while (matcher.find()) {
             String match = matcher.group(); // Get the matched statement
-            String[] cases = match.split("\\bcase\\b");
-            // Subtract 1 to exclude the default case, if any
-            caseCount += cases.length - 1;
+            // Split the match by "&&" and "||" to count conditions
+            String[] conditions = match.split("\\s*&&\\s*|\\s*\\|\\|\\s*");
+            conditionCount += conditions.length;
         }
 
-        return caseCount;
+        return conditionCount;
     }
 }
