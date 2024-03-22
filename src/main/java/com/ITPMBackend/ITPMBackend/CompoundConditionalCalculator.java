@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @RestController
 @CrossOrigin
-public class CompoundCondition {
+public class CompoundConditionalCalculator {
     @PostMapping("/calculate-complexity-if")
     public int countIf(@RequestBody String code) {
         // Define regular expressions to match 'if' and 'if else' statements
