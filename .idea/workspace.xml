@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3caac-1785-4e3c-a761-b32806c3140b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ITPMBackend/ITPMBackend/ItpmBackendApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ITPMBackend/ITPMBackend/ItpmBackendApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="ea8bfab4-14fe-410c-9778-0d37b6527638" name="Changes" comment="feat: implements ConcurrentThreadsDetector">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ITPM-Backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ITPM-Backend.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +74,21 @@
       <option name="project" value="LOCAL" />
       <updated>1711159845293</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: implements ArrayDeclaration">
+      <created>1711161835587</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711161835587</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: implements TryCatch">
+      <created>1711163761559</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711163761560</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +96,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: implements ConcurrentThreadsDetector" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: implements ConcurrentThreadsDetector" />
+    <MESSAGE value="feat: implements ArrayDeclaration" />
+    <MESSAGE value="feat: implements TryCatch" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implements TryCatch" />
   </component>
 </project>
