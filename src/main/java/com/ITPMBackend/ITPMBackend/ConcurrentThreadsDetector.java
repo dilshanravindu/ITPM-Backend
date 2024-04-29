@@ -1,5 +1,6 @@
 package com.ITPMBackend.ITPMBackend;
 
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,6 @@ import java.util.HashSet;
 @RestController
 @CrossOrigin
 class ConcurrentThreadsDetector {
-
     @PostMapping("/detect-concurrent-threads")
     public int detectConcurrentThreads(@RequestBody String payload) {
         String code = extractCodeFromPayload(payload);
@@ -25,42 +25,24 @@ class ConcurrentThreadsDetector {
         }
 
         String[] lines = code.split("\n");
-        Set<String> runningThreads = new HashSet<>();
-        int concurrentThreadCount = 0;
+        int threadDeclarationCount = 0;
+        int threadInvocationCount = 0;
 
         for (String line : lines) {
-            // Detect thread creation
-            Matcher creationMatcher = Pattern.compile("\\b(\\w+)\\s*=\\s*new\\s+Thread\\(.*\\)").matcher(line);
-            while (creationMatcher.find()) {
-                String threadName = creationMatcher.group(1);
-                runningThreads.add(threadName);
+            // Detect thread declaration
+            Matcher declarationMatcher = Pattern.compile("\\bThread\\s+(\\w+)\\s*=\\s*new\\s+Thread\\(.*\\)").matcher(line);
+            while (declarationMatcher.find()) {
+                threadDeclarationCount++;
             }
 
             // Detect thread start
             Matcher startMatcher = Pattern.compile("\\.start\\(\\)").matcher(line);
             while (startMatcher.find()) {
-                for (String threadName : runningThreads) {
-                    if (line.contains(threadName + ".start()")) {
-                        concurrentThreadCount++;
-                        break; // Break once a start is found in this line
-                    }
-                }
-            }
-
-            // Detect thread join
-            Matcher joinMatcher = Pattern.compile("\\.join\\(\\)").matcher(line);
-            while (joinMatcher.find()) {
-                for (String threadName : runningThreads) {
-                    if (line.contains(threadName + ".join()")) {
-                        // A thread is considered finished if it's joined
-                        runningThreads.remove(threadName);
-                        break; // Break once a join is found in this line
-                    }
-                }
+                threadInvocationCount++;
             }
         }
 
-        return concurrentThreadCount;
+        return threadDeclarationCount + threadInvocationCount;
     }
 
     private String extractCodeFromPayload(String payload) {
@@ -76,6 +58,7 @@ class ConcurrentThreadsDetector {
             return null;
         }
     }
+
 }
 //
 //sample code
@@ -122,9 +105,9 @@ class ConcurrentThreadsDetector {
 //        int concurrentThreads2 = ConcurrentThreadsDetector.countConcurrentThreads(code2);
 //        System.out.println("Code 2: Maximum Concurrent Threads = " + concurrentThreads2);
 //    }
+
+
 //
-
-
 //
 //import java.util.concurrent.ArrayBlockingQueue;
 //

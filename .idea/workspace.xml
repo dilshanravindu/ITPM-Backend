@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ea8bfab4-14fe-410c-9778-0d37b6527638" name="Changes" comment="feat: implements ConcurrentThreadsDetector">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ITPM-Backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ITPM-Backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ITPMBackend/ITPMBackend/ArrayDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ITPMBackend/ITPMBackend/ArrayDeclaration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ITPMBackend/ITPMBackend/ConcurrentThreadsDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ITPMBackend/ITPMBackend/ConcurrentThreadsDetector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ITPMBackend/ITPMBackend/TryCatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ITPMBackend/ITPMBackend/TryCatch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5ab3caac-1785-4e3c-a761-b32806c3140b" name="Changes" comment="" />
+      <changelist id="ea8bfab4-14fe-410c-9778-0d37b6527638" name="Changes" comment="feat: implements ConcurrentThreadsDetector" />
       <created>1711126828093</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -66,6 +68,7 @@
       <workItem from="1711127581684" duration="1509000" />
       <workItem from="1711129167238" duration="233000" />
       <workItem from="1711159012590" duration="1041000" />
+      <workItem from="1714398706030" duration="4386000" />
     </task>
     <task id="LOCAL-00001" summary="feat: implements ConcurrentThreadsDetector">
       <created>1711159845292</created>
