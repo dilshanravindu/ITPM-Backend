@@ -13,10 +13,12 @@ public class ArrayDeclaration {
     public class ArrayAnalysisResult {
         private int dimensions;
         private int totalElements;
+        private int complexity;
 
         public ArrayAnalysisResult(int dimensions, int totalElements) {
             this.dimensions = dimensions;
             this.totalElements = totalElements;
+            this.complexity = dimensions * totalElements;
         }
 
         public int getDimensions() {
@@ -25,6 +27,9 @@ public class ArrayDeclaration {
 
         public int getTotalElements() {
             return totalElements;
+        }
+        public int getComplexity() {
+            return complexity;
         }
     }
 

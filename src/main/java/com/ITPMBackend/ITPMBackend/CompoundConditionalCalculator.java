@@ -42,25 +42,52 @@ public class CompoundConditionalCalculator {
 
     @PostMapping("/calculate-complexity-switch")
     public int countSwitch(@RequestBody String code) {
-        // Define regular expression pattern to match 'case' statements
-        String casePattern = "\\bcase\\s*[^:]+:";
+        // Regular expression pattern to match switch blocks
+        String switchPattern = "switch\\s*\\(([^\\)]*)\\)\\s*\\{([^}]*)\\}";
+        Pattern switchPat = Pattern.compile(switchPattern, Pattern.DOTALL);
+        Matcher switchMatcher = switchPat.matcher(code);
 
-        // Create a regex pattern
-        Pattern pattern = Pattern.compile(casePattern);
+        int totalConditions = 0;
 
-        // Use a Matcher to find matches in the code
-        Matcher matcher = pattern.matcher(code);
+        // For each `switch` block found
+        while (switchMatcher.find()) {
+            // Extract the condition expression inside `switch(condition)`
+            String switchCondition = switchMatcher.group(1);
 
-        int conditionCount = 0;
+            // Count logical conditions in the switch expression itself
+            int conditionTerms = countTermsInCondition(switchCondition);
 
-        // Count conditions in 'case' statements
-        while (matcher.find()) {
-            String match = matcher.group(); // Get the matched statement
-            // Split the match by "&&" and "||" to count conditions
-            String[] conditions = match.split("\\s*&&\\s*|\\s*\\|\\|\\s*");
-            conditionCount += conditions.length;
+            // Extract the contents of the switch block
+            String switchBlockContent = switchMatcher.group(2);
+
+            // Pattern to count `case` statements
+            String casePattern = "\\bcase\\b";
+            Pattern casePat = Pattern.compile(casePattern);
+            Matcher caseMatcher = casePat.matcher(switchBlockContent);
+
+            // Count the number of `case` statements excluding `default`
+            int caseCount = 0;
+            while (caseMatcher.find()) {
+                caseCount++;
+            }
+
+            // Multiply the logical terms by the case count (ignoring the default)
+            totalConditions += conditionTerms * caseCount;
         }
 
-        return conditionCount;
+        return totalConditions;
+    }
+
+    /**
+     * Utility method to count logical terms in a condition expression,
+     * considering logical operators `&&` and `||`.
+     */
+    private int countTermsInCondition(String condition) {
+        // Count the occurrences of logical operators
+        int andOperators = condition.split("&&", -1).length - 1;
+        int orOperators = condition.split("\\|\\|", -1).length - 1;
+
+        // The number of logical terms will be total operators + 1
+        return andOperators + orOperators + 1;
     }
 }

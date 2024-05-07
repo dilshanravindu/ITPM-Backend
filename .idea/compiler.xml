@@ -9,9 +9,6 @@
         <module name="ITPM-Backend" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ITPM-Backend" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
