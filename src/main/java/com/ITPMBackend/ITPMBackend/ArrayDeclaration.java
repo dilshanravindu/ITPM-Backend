@@ -64,18 +64,19 @@ public class ArrayDeclaration {
     }
 
     private int countDimensions(String code) {
-        // Find the array declaration and count the number of opening square brackets [ to determine dimensions
-        Pattern pattern = Pattern.compile("\\s*(\\w+)\\s*(\\[\\s*\\]\\s*)+");
+        // Find the array declaration and count the number of pairs of square brackets [] to determine dimensions
+        Pattern pattern = Pattern.compile("\\w+(\\s*\\[\\s*\\]\\s*)+");
         Matcher matcher = pattern.matcher(code);
 
-        int dimensions = 0;
+        int maxDimensions = 0;
 
-        // Find the last matching array declaration
+        // Find all matching array declarations
         while (matcher.find()) {
             String match = matcher.group();
-            dimensions = match.split("\\[").length - 1; // Count the opening square brackets to determine dimensions
+            int bracketsCount = match.split("\\[").length - 1; // Count the opening square brackets to determine dimensions
+            maxDimensions = Math.max(maxDimensions, bracketsCount);
         }
 
-        return dimensions;
+        return maxDimensions;
     }
 }
