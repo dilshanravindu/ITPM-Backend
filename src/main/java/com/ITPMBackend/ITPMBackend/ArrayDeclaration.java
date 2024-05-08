@@ -1,4 +1,5 @@
 package com.ITPMBackend.ITPMBackend;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +16,10 @@ public class ArrayDeclaration {
         private int totalElements;
         private int complexity;
 
-        public ArrayAnalysisResult(int dimensions, int totalElements) {
+        public ArrayAnalysisResult(int dimensions, int totalElements, int complexity) {
             this.dimensions = dimensions;
             this.totalElements = totalElements;
-            this.complexity = dimensions * totalElements;
+            this.complexity = complexity;
         }
 
         public int getDimensions() {
@@ -28,6 +29,7 @@ public class ArrayDeclaration {
         public int getTotalElements() {
             return totalElements;
         }
+
         public int getComplexity() {
             return complexity;
         }
@@ -38,6 +40,7 @@ public class ArrayDeclaration {
         try {
             int dimensions = countDimensions(code);
             int totalElements = 0;
+            int complexity;
 
             // Find the start and end index of the array declaration
             int startIndex = code.indexOf("{");
@@ -50,7 +53,9 @@ public class ArrayDeclaration {
                 totalElements = arrayContent.isEmpty() ? 0 : arrayContent.split(",").length;
             }
 
-            ArrayAnalysisResult result = new ArrayAnalysisResult(dimensions, totalElements);
+            complexity = dimensions * totalElements;
+
+            ArrayAnalysisResult result = new ArrayAnalysisResult(dimensions, totalElements, complexity);
             return ResponseEntity.ok(result);
         } catch (Exception e) {
             e.printStackTrace();
