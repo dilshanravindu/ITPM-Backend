@@ -1,13 +1,13 @@
-package com.ITPMBackend.ITPMBackend;
+package com.example.itpm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ItpmBackendApplication {
+public class ItpmApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ItpmBackendApplication.class, args);
+		SpringApplication.run(ItpmApplication.class, args);
 	}
 
 }

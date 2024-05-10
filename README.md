@@ -1,2 +1,0 @@
-# ITPM-Backend
-Code analyzer

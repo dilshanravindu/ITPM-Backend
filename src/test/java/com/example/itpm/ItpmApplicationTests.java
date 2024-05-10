@@ -1,10 +1,10 @@
-package com.ITPMBackend.ITPMBackend;
+package com.example.itpm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ItpmBackendApplicationTests {
+class ItpmApplicationTests {
 
 	@Test
 	void contextLoads() {
