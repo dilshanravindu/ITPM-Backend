@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.9</version>
+		<version>3.1.11</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ITPMBackend</groupId>
-	<artifactId>ITPM-Backend</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>itpm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ITPM-Backend</name>
-	<description>ITPM</description>
+	<name>itpm</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

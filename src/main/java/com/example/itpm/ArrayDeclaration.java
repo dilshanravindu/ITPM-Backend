@@ -1,5 +1,4 @@
-package com.ITPMBackend.ITPMBackend;
-
+package com.example.itpm;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,7 @@ import java.util.regex.Pattern;
 @CrossOrigin
 public class ArrayDeclaration {
 
-    public class ArrayAnalysisResult {
+    public static class ArrayAnalysisResult {
         private int dimensions;
         private int totalElements;
         private int complexity;
@@ -49,8 +48,8 @@ public class ArrayDeclaration {
             if (startIndex != -1 && endIndex != -1) {
                 // Extract the content inside the curly braces {}
                 String arrayContent = code.substring(startIndex + 1, endIndex);
-                // Count the number of commas to determine the number of elements
-                totalElements = arrayContent.isEmpty() ? 0 : arrayContent.split(",").length;
+                // Count the total number of elements within the array
+                totalElements = countTotalElements(arrayContent);
             }
 
             complexity = dimensions * totalElements;
@@ -62,6 +61,28 @@ public class ArrayDeclaration {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+    private int countTotalElements(String arrayContent) {
+        // Remove the outer curly braces
+        arrayContent = arrayContent.substring(arrayContent.indexOf("{{") + 2, arrayContent.lastIndexOf("}}"));
+
+        // Split the content by commas and curly braces to extract individual elements
+        String[] elements = arrayContent.split("\\s*[,\\{\\}]\\s*");
+
+        // Initialize variable to count elements
+        int totalElements = 0;
+
+        // Count non-empty elements
+        for (String element : elements) {
+            if (!element.isEmpty()) {
+                totalElements++;
+            }
+        }
+
+        return totalElements;
+    }
+
+
+
 
     private int countDimensions(String code) {
         // Find the array declaration and count the number of pairs of square brackets [] to determine dimensions

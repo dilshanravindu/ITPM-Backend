@@ -1,4 +1,4 @@
-package com.ITPMBackend.ITPMBackend;
+package com.example.itpm;
 
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -165,4 +165,4 @@ class ConcurrentThreadsDetector {
 //        producerThread.start();
 //        consumerThread.start();
 //    }
-//}
+//
